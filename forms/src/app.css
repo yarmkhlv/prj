@@ -1,6 +1,53 @@
 @import url(reset.css);
 
-.wrapper {
-    display: flex;
+body {
+   background-image: url('../assets/med.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   color: #424242;
+    font-family: Roboto,sans-serif;
+}
+label {
+    cursor: pointer;
+}
 
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.wrapper {
+    background-color: #fff;
+    padding: 25px 75px;
+    border-radius: 15px;
+
+}
+
+.mini-block {
+    min-width: 100%;
+    margin-bottom: 30px;
+}
+.mini-block__label {
+    padding-left: 5px;
+    display: block;
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 3px;
+    font-weight: 500;
+
+}
+.mini-block__input {
+    min-width: 100%;
+    height: 24px;
+
+    border: 1px solid #CCC;
+    border-radius: 5px;
+
+    padding: 25px;
+    font-size: 20px;
+
+    margin-top: 10px;
 }

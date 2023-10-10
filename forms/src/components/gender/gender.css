@@ -1,0 +1,4 @@
+.gender-block {
+    display: flex;
+    justify-content: space-between;
+}
