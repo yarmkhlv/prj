@@ -2,7 +2,7 @@
 function GroupOfClients() {
     return (
         <div className='mini-block'>
-            <label className='mini-block__label' for='groupOfClients'>Группа клиентов</label>
+            <label className='mini-block__label' htmlFor='groupOfClients'>Группа клиентов</label>
             <select multiple className="mini-block__input" id='groupOfClients' name='groupOfClients' type="select">
                 <option value='VIP'>VIP</option>
                 <option value='Проблемные'>Проблемные</option>

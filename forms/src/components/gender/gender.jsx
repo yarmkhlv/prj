@@ -7,12 +7,12 @@ function Gender() {
             <div className="gender-block">
                 <div> 
                     <input className="gender-block__input" id='man' name='gender' type="radio" value='man'/>
-                    <label for='man'>Мужской</label>
+                    <label htmlFor='man'>Мужской</label>
                    
                 </div>
                 <div>
                     <input className="gender-block__input" id='woman' name='gender' type="radio" value='woman'/>
-                    <label for='woman'>Женский</label>
+                    <label htmlFor='woman'>Женский</label>
               </div>
             </div>
             

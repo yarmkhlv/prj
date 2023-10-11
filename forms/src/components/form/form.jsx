@@ -1,8 +1,8 @@
-import { FullName } from "../full_name/full_name";
-import { DateBirth } from "../date_birth/date_birth";
-import { MobileNumber } from "../mobile_number/mobile_number";
-import { Gender } from "../gender/gender";
-import { GroupOfClients } from "../group_of_clients/group_of_clients";
+import { FullName } from "../full_name/full_name.jsx";
+import { DateBirth } from "../date_birth/date_birth.jsx";
+import { MobileNumber } from "../mobile_number/mobile_number.jsx";
+import { Gender } from "../gender/gender.jsx";
+import { GroupOfClients } from "../group_of_clients/group_of_clients.jsx";
 
 import './form.css';
 
