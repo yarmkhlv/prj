@@ -1,17 +1,25 @@
+import Select from 'react-select';
 
-function GroupOfClients() {
-    return (
-        <div className='mini-block'>
-            <label className='mini-block__label' htmlFor='groupOfClients'>Группа клиентов</label>
-            <select multiple className="mini-block__input" id='groupOfClients' name='groupOfClients' type="select">
-                <option value='VIP'>VIP</option>
-                <option value='Проблемные'>Проблемные</option>
-                <option value='ОМС'>ОМС</option>
-                <option value='ДСМ'>ДМС</option>
-            </select> 
-        </div>
-        
-    )
-}
+import { dataGroupOfClients } from "../../config/varibales";
 
-export {GroupOfClients}
+function GroupOfClients({groupOfClients, setGroupOfClients}) {
+    
+ const handleChange = groupOfClients => {
+          setGroupOfClients(groupOfClients);
+        };
+
+return (
+    <div className='mini-block'>
+      <p className='mini-block__label'>Группа клиентов</p>
+        <Select
+            isMulti
+            options={dataGroupOfClients}
+            value={groupOfClients}
+            onChange={handleChange}
+            placeholder='Выбрать'
+            noOptionsMessage={()=>'Все варианты выбраны'}
+      />
+    </div>
+)}
+
+export {GroupOfClients};
