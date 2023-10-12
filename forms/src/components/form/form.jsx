@@ -14,22 +14,37 @@ function Form() {
   const [fullName, setFullName] = useState('');
   const [dateBirth, setDateBirth] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
-  // eslint-disable-next-line no-unused-vars
   const [gender, setGender] = useState('');
   const [groupOfClients, setGroupOfClients] = useState(null);
   const [therapist, setTherapist] = useState(null);
   const [doNotSendMessage, setDoNotSendMessage] = useState(false);
-  // console.log({
-  //   fullName,
-  //   dateBirth,
-  //   mobileNumber,
-  //   gender,
-  //   groupOfClients,
-  //   therapist,
-  //   doNotSendMessage,
-  // });
+  console.log({
+    fullName,
+    dateBirth,
+    mobileNumber,
+    gender,
+    groupOfClients,
+    therapist,
+    doNotSendMessage,
+  });
+
+  const createClient = (event) => {
+    event.preventDefault();
+    alert('Клиент создан');
+    (function clear() {
+      setFullName('');
+      setDateBirth('');
+      setMobileNumber(null);
+      setGender(null);
+      setGroupOfClients(null);
+      setTherapist(null);
+      setDoNotSendMessage(false);
+    })();
+  };
+
   return (
     <form className="form">
+      <h1 className="form_title">Форма клиента поликлиники</h1>
       <FullName fullName={fullName} setFullName={setFullName} />
       <DateBirth dateBirth={dateBirth} setDateBirth={setDateBirth} />
       <MobileNumber
@@ -46,8 +61,8 @@ function Form() {
         doNotSendMessage={doNotSendMessage}
         setDoNotSendMessage={setDoNotSendMessage}
       />
-      <button className="form__submit" type="submit">
-        Отправить
+      <button className="form__submit" type="button" onClick={createClient}>
+        Создать клиента
       </button>
     </form>
   );

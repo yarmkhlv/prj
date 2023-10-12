@@ -11,8 +11,8 @@ function CheckMessage({ doNotSendMessage, setDoNotSendMessage }) {
         id="sms"
         name="sms"
         type="checkbox"
-        value={doNotSendMessage}
-        onInput={handlerChanger}
+        checked={doNotSendMessage}
+        onChange={handlerChanger}
       />
       <label className="mini-block__label this-label-inline" htmlFor="sms">
         Не отправлять СМС
