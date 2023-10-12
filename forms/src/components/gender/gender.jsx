@@ -1,13 +1,16 @@
 import './gender.css';
 
-function Gender({ setGender }) {
+function Gender({ gender, setGender }) {
   const handlerCheckGender = (event) => {
     setGender(event.currentTarget.value);
   };
 
   return (
     <div className="mini-block">
-      <p className="mini-block__label">Пол</p>
+      <p className="mini-block__label">
+        Пол
+        {gender ? null : <span className="mini-block__label_important">*</span>}
+      </p>
       <div className="gender-block">
         <div>
           <input
@@ -18,6 +21,7 @@ function Gender({ setGender }) {
             type="radio"
             value="man"
             required
+            checked={gender === 'man'}
           />
           <label htmlFor="man">Мужской</label>
         </div>
@@ -30,6 +34,7 @@ function Gender({ setGender }) {
             type="radio"
             value="woman"
             required
+            checked={gender === 'woman'}
           />
           <label htmlFor="woman">Женский</label>
         </div>

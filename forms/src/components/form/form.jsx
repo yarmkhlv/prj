@@ -14,10 +14,15 @@ function Form() {
   const [fullName, setFullName] = useState('');
   const [dateBirth, setDateBirth] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
-  const [gender, setGender] = useState('');
+  const [gender, setGender] = useState(null);
   const [groupOfClients, setGroupOfClients] = useState(null);
   const [therapist, setTherapist] = useState(null);
   const [doNotSendMessage, setDoNotSendMessage] = useState(false);
+
+  const [validationFullName, setValidationFullName] = useState(false);
+  const [validationDateBirth, setValidationDateBirth] = useState(false);
+  const [validationMobileNumber, setValidationMobileNumber] = useState(false);
+
   console.log({
     fullName,
     dateBirth,
@@ -43,15 +48,27 @@ function Form() {
   };
 
   return (
-    <form className="form">
+    <form className="form" onSubmit={createClient}>
       <h1 className="form_title">Форма клиента поликлиники</h1>
-      <FullName fullName={fullName} setFullName={setFullName} />
-      <DateBirth dateBirth={dateBirth} setDateBirth={setDateBirth} />
+      <FullName
+        fullName={fullName}
+        setFullName={setFullName}
+        validationFullName={validationFullName}
+        setValidationFullName={setValidationFullName}
+      />
+      <DateBirth
+        dateBirth={dateBirth}
+        setDateBirth={setDateBirth}
+        validationDateBirth={validationDateBirth}
+        setValidationDateBirth={setValidationDateBirth}
+      />
       <MobileNumber
         mobileNumber={mobileNumber}
         setMobileNumber={setMobileNumber}
+        validationMobileNumber={validationMobileNumber}
+        setValidationMobileNumber={setValidationMobileNumber}
       />
-      <Gender setGender={setGender} />
+      <Gender gender={gender} setGender={setGender} />
       <GroupOfClients
         groupOfClients={groupOfClients}
         setGroupOfClients={setGroupOfClients}
@@ -61,7 +78,7 @@ function Form() {
         doNotSendMessage={doNotSendMessage}
         setDoNotSendMessage={setDoNotSendMessage}
       />
-      <button className="form__submit" type="button" onClick={createClient}>
+      <button className="form__submit" type="submit">
         Создать клиента
       </button>
     </form>

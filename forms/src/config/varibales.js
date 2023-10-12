@@ -16,4 +16,10 @@ const API_DADATA = {
   TOKEN: 'f6f8214e9fc4a101ebc1df2c1fb83a397d8b9905',
 };
 
-export { dataGroupOfClients, dataTherapists, API_DADATA };
+const REGEX = {
+  fullName: /^[A-Za-zА-ЯЁа-яё]+ [A-Za-zА-ЯЁа-яё]+ [A-Za-zА-ЯЁа-яё]+$/,
+  dateBirth: /^\d{4}-\d{2}-\d{2}$/,
+  mobileNumber: /^\+\d{1} \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
+};
+
+export { dataGroupOfClients, dataTherapists, API_DADATA, REGEX };
