@@ -1,15 +1,27 @@
-function DateBirth({dateBirth, setDateBirth}) {
+import { getToday } from '../../helpers/helpers';
 
-    const handlerChangerDateBirth=(event)=>{
-        setDateBirth(event.currentTarget.value)
-    }
+function DateBirth({ dateBirth, setDateBirth }) {
+  const handlerChangerDateBirth = (event) => {
+    setDateBirth(event.currentTarget.value);
+  };
 
-    return (
-        <div className="mini-block">
-            <label className="mini-block__label" htmlFor='datebirth'>Дата рождения</label>
-            <input className="mini-block__input" value={dateBirth} onChange={handlerChangerDateBirth} name='datebirth' id='datebirth' type='date' required></input>
-        </div>
-    )
+  return (
+    <div className="mini-block">
+      <label className="mini-block__label" htmlFor="datebirth">
+        Дата рождения
+      </label>
+      <input
+        className="mini-block__input"
+        value={dateBirth}
+        onChange={handlerChangerDateBirth}
+        name="datebirth"
+        id="datebirth"
+        type="date"
+        max={getToday()}
+        required
+      ></input>
+    </div>
+  );
 }
 
-export {DateBirth}
+export { DateBirth };
