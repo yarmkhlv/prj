@@ -1,10 +1,19 @@
+import { useEffect } from 'react';
+
 import './gender.css';
 
-function Gender({ gender, setGender }) {
+function Gender({ gender, setGender, setValidationGender }) {
   const handlerCheckGender = (event) => {
     setGender(event.currentTarget.value);
   };
 
+  useEffect(() => {
+    if (gender === 'man' || gender === 'woman') {
+      setValidationGender(true);
+    } else {
+      setValidationGender(false);
+    }
+  }, [gender, setValidationGender]);
   return (
     <div className="mini-block">
       <p className="mini-block__label">

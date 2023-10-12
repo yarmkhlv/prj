@@ -11,7 +11,7 @@ import { CheckMessage } from '../do_not_send_message/do_not_send_message.jsx';
 import './form.css';
 
 function Form() {
-  const [fullName, setFullName] = useState('');
+  const [fullName, setFullName] = useState({ value: '' });
   const [dateBirth, setDateBirth] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
   const [gender, setGender] = useState(null);
@@ -22,28 +22,30 @@ function Form() {
   const [validationFullName, setValidationFullName] = useState(false);
   const [validationDateBirth, setValidationDateBirth] = useState(false);
   const [validationMobileNumber, setValidationMobileNumber] = useState(false);
+  const [validationGender, setValidationGender] = useState(false);
 
-  console.log({
-    fullName,
-    dateBirth,
-    mobileNumber,
-    gender,
-    groupOfClients,
-    therapist,
-    doNotSendMessage,
-  });
+  const isBtnSubmitDisabled =
+    validationFullName &&
+    validationDateBirth &&
+    validationMobileNumber &&
+    validationGender;
 
   const createClient = (event) => {
     event.preventDefault();
     alert('Клиент создан');
     (function clear() {
-      setFullName('');
+      setFullName({ value: '' });
       setDateBirth('');
       setMobileNumber(null);
       setGender(null);
       setGroupOfClients(null);
       setTherapist(null);
       setDoNotSendMessage(false);
+
+      setValidationFullName(false);
+      setValidationDateBirth(false);
+      setValidationMobileNumber(false);
+      setValidationGender(false);
     })();
   };
 
@@ -68,7 +70,12 @@ function Form() {
         validationMobileNumber={validationMobileNumber}
         setValidationMobileNumber={setValidationMobileNumber}
       />
-      <Gender gender={gender} setGender={setGender} />
+      <Gender
+        gender={gender}
+        setGender={setGender}
+        validationGender={validationGender}
+        setValidationGender={setValidationGender}
+      />
       <GroupOfClients
         groupOfClients={groupOfClients}
         setGroupOfClients={setGroupOfClients}
@@ -78,7 +85,11 @@ function Form() {
         doNotSendMessage={doNotSendMessage}
         setDoNotSendMessage={setDoNotSendMessage}
       />
-      <button className="form__submit" type="submit">
+      <button
+        disabled={!isBtnSubmitDisabled}
+        className="form__submit"
+        type="submit"
+      >
         Создать клиента
       </button>
     </form>

@@ -5,10 +5,15 @@ import { API_DADATA, REGEX } from '../../config/varibales';
 import 'react-dadata/dist/react-dadata.css';
 import './full_name.css';
 
-function FullName({ setFullName, validationFullName, setValidationFullName }) {
+function FullName({
+  fullName,
+  setFullName,
+  validationFullName,
+  setValidationFullName,
+}) {
   const bindTwoFunction = (event) => {
-    setFullName(event.currentTarget.value);
-    setValidationFullName(REGEX.fullName.test(event.currentTarget.value));
+    setFullName({ value: event.currentTarget.value });
+    setValidationFullName(REGEX.fullName.test(fullName.value));
   };
 
   return (
@@ -28,6 +33,7 @@ function FullName({ setFullName, validationFullName, setValidationFullName }) {
           required: true,
           placeholder: 'Иванов Иван Иванович',
         }}
+        value={fullName}
       />
     </div>
   );

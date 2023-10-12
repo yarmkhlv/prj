@@ -12,7 +12,6 @@ function DateBirth({
     setDateBirth(event.currentTarget.value);
     setValidationDateBirth(REGEX.dateBirth.test(event.currentTarget.value));
   };
-  console.log(validationDateBirth);
 
   return (
     <div className="mini-block">
