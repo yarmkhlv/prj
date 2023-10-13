@@ -22,10 +22,10 @@
   background-color: gray;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
   .form_title {
-    margin-bottom: 20px;
-    font-size: 1.47rem;
+    margin-bottom: 15px;
+    font-size: 1.37rem;
   }
 }
 
